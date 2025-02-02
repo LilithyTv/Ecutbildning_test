@@ -1,25 +1,29 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" 
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 
-         http://maven.apache.org/maven-v4_0_0.xsd">
+         http://maven.apache.org/xsd/maven-4.0.0.xsd">
   <modelVersion>4.0.0</modelVersion>
-  <groupId>com.yourcompany</groupId>
-  <artifactId>my-registration-tests</artifactId>
+  
+  <groupId>com.exempel</groupId>
+  <artifactId>exempel-registration-tests</artifactId>
   <version>1.0-SNAPSHOT</version>
+  <packaging>jar</packaging>
   
   <dependencies>
-    <!-- Selenium -->
+    <!-- Selenium WebDriver -->
     <dependency>
       <groupId>org.seleniumhq.selenium</groupId>
       <artifactId>selenium-java</artifactId>
       <version>4.8.0</version>
     </dependency>
+    
     <!-- Cucumber Java -->
     <dependency>
       <groupId>io.cucumber</groupId>
       <artifactId>cucumber-java</artifactId>
       <version>7.11.0</version>
     </dependency>
+    
     <!-- Cucumber JUnit -->
     <dependency>
       <groupId>io.cucumber</groupId>
@@ -27,6 +31,7 @@
       <version>7.11.0</version>
       <scope>test</scope>
     </dependency>
+    
     <!-- JUnit -->
     <dependency>
       <groupId>junit</groupId>
@@ -34,7 +39,6 @@
       <version>4.13.2</version>
       <scope>test</scope>
     </dependency>
-    <!-- Additional dependencies as needed -->
   </dependencies>
   
   <build>
@@ -53,3 +57,4 @@
     </plugins>
   </build>
 </project>
+
