@@ -12,6 +12,7 @@ Feature: User Registration
       | email           | john.doe@example.com     |
       | password        | P@ssw0rd                 |
       | confirmPassword | P@ssw0rd                 |
+      | birthDate       | 02/02/1980               |
     And I accept the terms and conditions
     And I submit the registration form
     Then I should see a success message
@@ -26,12 +27,13 @@ Feature: User Registration
       | email           | john.doe@example.com     |
       | password        | <password>               |
       | confirmPassword | <confirmPassword>        |
+      | birthDate       | 02/02/1980               |
     And I set the terms and conditions acceptance to <termsAccepted>
     And I submit the registration form
     Then I should see an error message "<expectedError>"
 
     Examples:
-      | lastName | password  | confirmPassword | termsAccepted | expectedError                             |
-      |          | P@ssw0rd  | P@ssw0rd        | true          | Last name is required                     |
-      | Doe      | P@ssw0rd  | DifferentP@ss   | true          | Passwords do not match                    |
-      | Doe      | P@ssw0rd  | P@ssw0rd        | false         | You must accept the terms and conditions  |
+      | lastName | password  | confirmPassword | termsAccepted | expectedError                                                                                |
+      |          | P@ssw0rd  | P@ssw0rd        | true          | Last Name is required                                                                        |
+      | Doe      | P@ssw0rd  | DifferentP@ss   | true          | Password did not match                                                                       |
+      | Doe      | P@ssw0rd  | P@ssw0rd        | false         | You must confirm that you have read, understood and agree to the Code of Ethics and Conduct  |
