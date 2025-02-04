@@ -2,6 +2,6 @@ package com.exempel;
 
 public class App {
     public static void main(String[] args) {
-        System.out.println("Hello from Exempel Registration Tests!");
+        System.out.println("Hej! Detta är ett test");
     }
 }

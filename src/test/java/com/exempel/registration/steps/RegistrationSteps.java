@@ -12,6 +12,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.firefox.FirefoxOptions;
 import org.openqa.selenium.remote.RemoteWebDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
@@ -24,12 +25,16 @@ import java.util.Map;
 import java.util.concurrent.TimeUnit;
 import java.util.stream.Collectors;
 
+
 public class RegistrationSteps {
     private WebDriver driver;
+    private final String BROWSER = "chrome";
+
+
 
     @Before
     public void setUp() throws MalformedURLException {
-        String browser = System.getProperty("browser", "chrome");
+        String browser = System.getProperty("browser", BROWSER);
         if (browser.equalsIgnoreCase("chrome")) {
             System.setProperty("webdriver.chrome.driver", "C:\\Users\\Usuario\\IdeaProjects\\Ecutbildning_test\\chromedriver.exe");
             ChromeOptions options = new ChromeOptions();
@@ -42,8 +47,11 @@ public class RegistrationSteps {
             options.setExperimentalOption("useAutomationExtension", false);
             driver = new RemoteWebDriver(new URL("http://localhost:9515"), new ChromeOptions());
         } else if (browser.equalsIgnoreCase("firefox")) {
-            System.setProperty("webdriver.gecko.driver", "path/to/geckodriver");
-            driver = new FirefoxDriver();
+            System.setProperty("webdriver.gecko.driver", "C:\\Drivers\\geckodriver.exe");
+            FirefoxOptions options = new FirefoxOptions();
+            driver = new FirefoxDriver(options);
+
+
         } else {
             throw new RuntimeException("Unsupported browser: " + browser);
         }
